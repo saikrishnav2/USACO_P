@@ -1,0 +1,107 @@
+/*
+ID:svasude2
+PROG: pprime
+LANG: C++
+*/
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+int extract(int digit_number,int Number,int N)
+{
+  int count=0;
+  while(N>0)
+    {
+      //cout<<Number<<endl;
+      count++;
+      if (count==digit_number)
+	return Number/((int) pow(10,N-1));
+      else  Number%=((int) pow(10,N-1));
+     
+      N--;
+    }
+
+}
+int Return_Closest_Palindrome(int num,int N)
+{
+  int L,R,i,j,M;
+  
+  int no_need=1;
+  for(int e=N;e>=N/2;e--)
+    {
+      L=extract(N-e+1,num,N);                 //extract left middle
+      R=extract(e,num,N);             //extract right middle
+      //cout<<L<<M<<R<<endl;
+      if (L==R)
+	{
+	  if ((N%2==0)&&(e==N/2+1))
+	    {
+	      if (!no_need)
+		{
+		  num+=((int) pow(10,N-e));
+		  num+=((int) pow(10,N-e+1));
+		  no_need=1;
+		}
+	    }
+	  else if ((N%2!=0)&&(e==N/2+1))
+	    {
+	      if (!no_need)
+		{
+		  num+=((int) pow(10,N-e));
+		  no_need=1;
+		}
+	    }
+
+	}
+      if (L>R){
+	//num+=((int) pow(10,N-i));
+	if ((N%2==0)&&(e==N/2+1))
+	  {
+	    if (!no_need)
+	      {
+		
+		num+=(L-R)*((int) pow(10,N-e));
+		no_need=1;
+	      }
+
+	  }
+	else
+	  num+=(L-R)*((int) pow(10,N-e));
+
+      }
+      else if (L<R)
+	{
+	  if ((N%2==0)&&(e==N/2+1))
+	    {
+	      if (!no_need)
+		{
+		  num+=((int) pow(10,N-e+1));
+		  num-=(R-L-1)*((int) pow(10,N-e));
+		  no_need=1;
+		}
+	      
+	    }
+	  else
+	    {
+	      num-=(R-L)*((int) pow(10,N-e));
+	      no_need=0;
+	    }
+	}
+      
+    }
+  return num;	
+  
+}
+
+int main()
+{
+  ofstream fout ("pprime.out");
+  ifstream fin ("pprime.in"); 
+  for (int i=100;i<200;i++)
+    {
+      cout<<i<<":"<<Return_Closest_Palindrome(i,3)<<endl;
+    }
+
+}
+  

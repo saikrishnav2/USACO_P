@@ -1,0 +1,55 @@
+/* 
+ID:svasude2
+PROG:prefix
+LANG:C++
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <fstream>
+#include <iostream>
+#include <string.h>
+
+char Primitives[200][11];
+char sequence[200001];
+bool Next_Index[200001]={false};
+char Buffer[77];
+
+using namespace std;
+char Read[11];
+int main()
+{
+  FILE* fin = fopen ("prefix.in","r");
+  ofstream fout("prefix.out");
+  //scan for a string until period
+  int i=0;
+  sequence[0]='\0';
+  for (;;)
+    {
+      fscanf(fin,"%s",Read);
+      if (strcmp(Read,".")==0) break;
+      strcpy(Primitives[i++],Read);
+    }
+  for (int j=0;j<i;j++)
+    {
+      cout<<Primitives[j]<<endl;
+    }
+  //scan sequence
+  for(;;)
+    {
+      
+      fscanf(fin,"%s",Buffer);
+      if (!feof(fin))
+	{
+	  strcat(sequence,Buffer);
+	}
+      else break;
+    }
+  cout<<sequence<<endl;
+
+
+
+  //
+
+
+}

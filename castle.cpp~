@@ -1,0 +1,144 @@
+/*
+ID: svasude2
+PROG:castle
+LANG: C++
+ */
+
+#include <fstream>
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+struct Node
+{
+  int Number;
+  int Visited;
+
+};
+Node Matrix[50][50];
+ofstream fout ("castle.out");
+ifstream fin ("castle.in");
+int Row,Col;
+void read_input(void)
+{
+  fin>>Row>>Col;
+  for (int i=0;i<Row;i++)
+    {
+      for (int j=0;j<Col;j++)
+	{
+	  fin>>Matrix[i][j].Number;
+	}
+    }
+
+
+}
+int array_east[]={4,5,6,12,7,14,13,15};
+int array_west[]={1,3,5,9,7,13,11,15};
+int array_south[]={8,9,10,12,14,11,13,15};
+int array_north[]={2,3,6,10,7,14,11,15};
+int array_directions[]={1,2,4,8};
+int is_open(int number,int direction)
+{
+  int* array_search;
+  switch(direction)
+    {
+    case(1):
+      array_search=array_west;
+      break;
+    case(2):
+      array_search=array_north;
+      break;
+    case(4):
+      array_search=array_east;
+      break;
+    case(8):
+      array_search=array_south;
+      break;
+    }
+  for (int i=0;i<8;i++)
+    {
+      if (number==array_search[i]) return 0;
+
+    }
+  return 1;
+  
+}
+int Row_direction(int Row,int direction)
+{
+  /*
+  - 1: wall to the west
+  - 2: wall to the north
+  - 4: wall to the east
+  - 8: wall to the south
+  */
+  if ((direction==1)||(direction==4)) return Row;
+  else if (direction==2) return Row-1;
+  else return Row+1;
+  
+}
+int Col_direction(int Col,int direction)
+{
+  /*
+  - 1: wall to the west
+  - 2: wall to the north
+  - 4: wall to the east
+  - 8: wall to the south
+  */
+  if ((direction==2)||(direction==8)) return Col;
+  else if (direction==1) return Col-1;
+  else return Col+1;
+  
+}
+void find_longest_room(int Row_Start,int Col_Start)
+{
+  
+  int queue[4]={0};
+  int queue_count=0;
+  //Can go to west,east,south,North?
+  for (int i=0;i<4;i++)
+    {
+      if (is_open(Matrix[Row_Start][Col_Start].Number,array_directions[i]))
+	{
+	  queue[queue_count]=array_directions[i];
+	  queue_count++;
+	}
+    }
+  // for each direction that the room could take
+
+  for (int i=0;i<queue_count;i++)
+    {
+      //Mark this room as visited
+      Matrix[Row_Start][Col_Start].Visited=1;
+      //Recurse on the next module to the open direction
+      
+
+    }
+
+  
+}
+void clear_visited()
+{
+  
+  for (int i=0;i<Row;i++)
+    {
+      for (int j=0;j<Col;j++)
+	{
+	  Matrix[i][j].Visited=0;
+	}
+    }
+
+}
+
+
+   
+int main()
+{
+  /*
+- 1: wall to the west
+- 2: wall to the north
+- 4: wall to the east
+- 8: wall to the south
+   */
+  read_input();
+  clear_visited();
+  
+}

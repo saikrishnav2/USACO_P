@@ -1,0 +1,41 @@
+/*
+ID: svasude2
+PROG: crypt1
+LANG: C++ 
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+  ofstream fout ("crypt1.out");
+  ifstream fin ("crypt1.in");
+  int N;
+  int Index_Top=0;
+  int Index_Bottom=0;
+  int Top[810]={0};
+  int Bottom[90]={0};
+  int Set[10]={0};
+  fin>>N;
+  while (N--) fin>>Set[N];
+  for (int i=0;i<N;i++)
+    {
+      if (Set[i]==0) continue;
+      for (int j=0;j<N;j++)
+	{
+               for (int k=0;k<N;k++)
+		 {
+		   Top[Index_Top++]=Set[k]+10*Set[j]+ 100*Set[i];
+		   if (Set[j]!=0) Bottom[Index_Bottom++]=Set[k]+10*Set[j];
+		 }
+	}
+    }
+  for (int i=0;i<Index_Top;i++)
+    cout<<Top[i]<<endl;
+  cout<<"Top Done"<<endl;
+  for (int j=0;j<Index_Bottom;j++)
+    cout<<Bottom[j]<<endl;
+  cout<<"Bottom Done"<<endl;
+ 

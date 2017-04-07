@@ -1,0 +1,28 @@
+/*
+ID: svasude2
+PROG: ariprog
+LANG: C++ 
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+  ofstream fout ("ariprog.out");
+  ifstream fin ("ariprog.in");
+
+  int length,Bi_max;
+  fin>>length>>Bi_max;
+  for(int difference=1;i<=250;i++)
+    {
+      for(int sp=1;sp<=250;sp++)
+	{
+	  if (check_sequence(length,Bi_max,sp)) cout<<sp<<" "<<difference<<endl;
+
+	}
+
+    }
+
+}

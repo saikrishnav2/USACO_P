@@ -1,0 +1,17 @@
+/*
+ID: svasude2
+PROG: sprime
+LANG: cpp
+ */
+
+#include <fstream>
+#include <iostream>
+
+int main()
+{
+  ofstream fout("sprime.out");
+  ifstream fin("sprime.in");
+
+
+}
+  

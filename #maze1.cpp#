@@ -1,0 +1,63 @@
+/*
+ID:svasude2
+PROG:maze1
+LANG:C++
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+char Vertex [380][4];
+char Grid [201][77];
+int main()
+{
+  ifstream fin("maze1.in");
+  ofstream fout("maze1.out");
+  int W,H;
+  fin>>W>>H;
+  /*Algorithm
+  Representation of graphs :
+  In this case each vertices connects a square upwards,downwards,leftwards or rightwards.
+  
+  Make the vertex at the border having an opening as the destination vertex.
+
+  While reading the file, The even lines should look for '-' and update downwards information of the vertex above it and upwards
+    
+  //If in odd row, look for odd c 
+
+  for 
+  */
+  char temp;
+  fin.ignore();
+  for (int i=0;i<(2*H+1);i++)
+    {
+      for (int j=0;j<(2*W+1);j++)
+	{
+	  fin.get(Grid[i][j]);
+	  cout<<Grid[i][j];
+	}
+      fin.ignore();
+      cout<<endl;
+    }
+  //Go through the border and look for two destination vertices.
+
+  //To go through the upper and lower border look at the odd places and if there is a space it means destination vertex
+  int Destination_Vertex[2]={0};
+  int count=0;
+  //upper border
+  for (int i=1;i<(2*W+1);i+=2) if (Grid[0][i]==' ') Destination_Vertex[count++]=i/2;
+  //lower border
+  for (int i=1;i<((2*W+1)&&(count<2));i+=2) if (Grid[2*H][i]==' ') Destination_Vertex[count++]=(W*(H-1)+(i/2));
+  //Left border
+  for (int i=1;i<((2*H+1)&&(count<2));i+=2) if (Grid[i][0]==' ') Destination_Vertex[count++]=(W*i);
+  //Right Border
+  for (int i=1;i<((2*H+1)&&(count<2));i+=2) if (Grid[i][2*W]==' ') Destination_Vertex[count++]=(W*i+W-1);
+
+
+  cout<<Destination_Vertex[0]<<" "<<Destination_Vertex[1]<<endl;
+												     
+  
+    
+}

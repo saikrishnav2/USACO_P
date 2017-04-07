@@ -1,0 +1,70 @@
+/*
+ID: svasude42
+PROG: namenum
+LANG: C++    
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <math.h>
+using namespace std;
+string* attach(char to_attach,string* array,int length)
+{
+  string* dup=new string[length];
+  for(int i=0;i<length;i++)
+    {
+      dup[i]=to_attach+array[i];
+      cout<<dup[i]<<endl;
+    }
+  delete array;
+  return dup;
+
+
+}
+int main() {
+  ofstream fout ("namenum.out");
+  ifstream fin ("namenum.in");
+  ifstream dict ("dict.txt");
+  string Dict[5000];
+  int dict_count=0;
+  string N;
+  fin>>N;
+  for (int i=0;i<5000;i++)
+    {
+      if (!(dict >> Dict[i])) break;
+      dict_count+=1;
+      cout<<Dict[i]<<endl;
+    }
+  cout<<"Dict Count is :"<<dict_count<<"\n";
+  int num_names=(int) pow(3,(double) N.length());
+  string* possible_names= new string[num_names];
+  int track_digits[12]={};
+  int exhausted_digits=0;
+  string numpad[8][3]={{"A","B","C"},{"D","E","F"},{"G","H","I"},{"J","K","L"},{"M","N","O"},{"P","R","S"},{"T","U","V"},{"W","X","Y"}};
+  int cur_digit=0;
+  string* yoo=new string[3];
+  yoo[0]=numpad[atoi(N[N.length()-1])-2][0];yoo[1]=numpad[atoi(N[N.length()-1])-2][1];yoo[2]=numpad[atoi(N[N.length()-1])-2][2];
+  int v_length=3;
+  int p_length=3;
+  yoo[0]="";//;yoo[1]="";yoo[2]="";
+  for (int i=0;i<N.length();i++)
+    {
+      for (int j=N.length()-2; j>=0;j--)
+	{
+	  for (int k=0;k<3;k++)
+	    {
+	       if (k!=0)
+		{
+		  v_length+=v_length*(1);
+		}
+	      string* dup=attach(numpad[atoi(N[j])-2][k],yoo,v_length);
+	     
+	    }
+	}
+
+    }
+  
+  cout<<"possible num of names : "<<num_names<<endl;
+  
+  return 0;
+}

@@ -1,0 +1,26 @@
+/*
+ID:svasude4
+PROG:milk
+LANG: C++      
+*/
+#include <iostream>
+#include <fstream>
+#include <math.h>
+#include <string.h>
+using namespace std;
+int main() {
+  ofstream fout ("milk.out");
+  ifstream fin ("milk.in");
+  int total_cost=0;int N_farm=0;
+  fin>>total_cost>>N_farm;
+  int* cents= new int [N_farm];
+  int* units= new int [N_farm];
+  for (int i=0;i<N_farm;i++)
+    {
+      fin>>cents[i]>>units[i];
+      cout<<cents[i]<<" "<<units[i]<<endl;
+    }
+  
+
+  return 0;
+}

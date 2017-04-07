@@ -1,0 +1,107 @@
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+32
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+23
+11
+21
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+2 3
+1 1
+2 1
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+2 3
+1 1
+1 1
+2 1
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+2 3
+1 1
+1 1
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+2 3
+1 1
+1 1
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+2 3
+1 1
+1 1
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+3 5
+2 3
+1 1
+1 1
+1 1
+1 2
+Answer is : 4
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+3 5
+2 3
+1 1
+1 2
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+3 7
+2 5
+1 3
+1 1
+1 2
+1 2
+1 1
+2 4
+1 2
+1 1
+1 2
+2 3
+2 3
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USAC
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+Levels: 3 Nodes: 7
+Levels: 2 Nodes: 5
+Levels: 1 Nodes: 3
+Levels: 1 Nodes: 1
+Levels: 1 Nodes: 2
+Levels: 1 Nodes: 2
+Levels: 1 Nodes: 1
+Levels: 2 Nodes: 4
+Levels: 1 Nodes: 2
+Levels: 1 Nodes: 1
+Levels: 1 Nodes: 2
+Levels: 2 Nodes: 3
+Levels: 2 Nodes: 3
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+Levels: 3 Nodes: 7
+Levels: 2 Nodes: 5
+Levels: 1 Nodes: 3
+Levels: 1 Nodes: 1
+Levels: 1 Nodes: 1
+Levels: 2 Nodes: 3
+Levels: 2 Nodes: 3
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+Levels: 3 Nodes: 7
+Levels: 2 Nodes: 5
+Levels: 1 Nodes: 3
+returning 0 
+Levels: 1 Nodes: 1
+Levels: 1 Nodes: 1
+Levels: 2 Nodes: 3
+Levels: 2 Nodes: 3
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ ./nocows
+Levels: 3 Nodes: 7
+Levels: 2 Nodes: 5
+Levels: 1 Nodes: 3
+returning 0 
+Levels: 1 Nodes: 1
+sum 1 0
+Levels: 1 Nodes: 1
+sum 1 0
+Levels: 2 Nodes: 3
+Levels: 2 Nodes: 3
+sum 3 2
+Answer is : 2
+saikrishna@saikrishna-Inspiron-13-7359:~/Desktop/USACO$ 

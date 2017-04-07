@@ -1,0 +1,82 @@
+/*
+ID: svasude2
+PROG: skidesign
+LANG: C++ 
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <stdlib.h>
+#include <math.h>
+#define MAX_N 1000
+using namespace std;
+struct hill{
+  int Elevation;
+  int Visited;
+};
+struct hill Hills[MAX_N+1]={0};
+int N;
+int compare (const void * a, const void * b)
+{
+  hill *A = (hill *)a;
+  hill *B = (hill *)b;
+  
+  return ( A->Elevation - B->Elevation );
+}
+
+int main() {
+  ofstream fout ("skidesign.out");
+  ifstream fin ("skidesign.in");
+  fin>>N;
+  for (int i=1;i<=N;i++){
+    fin>>Hills[i].Elevation;
+    Hills[i].Visited=0;
+  }
+  qsort(Hills,N+1,sizeof(hill),compare);
+  for (int j=1;j<=N;j++) cout<<Hills[j].Elevation<<" ";
+  cout<<endl;
+  int largest=Hills[N].Elevation;
+  int smallest=Hills[1].Elevation;
+  
+  int cost=0;
+  while (1)
+    {
+      int Difference=largest-smallest;
+      if (Difference>17)
+	{
+	  if ((Difference-17)!=1)
+	    {
+	      if (Difference%2==0)
+		{
+		  Hills[1].Elevation+=(Difference+1-17)/2;
+		  Hills[N].Elevation-=(Difference-17)/2;
+		  cost+= (int) pow((Difference-17)/2,2)+ (int) pow((Difference+1-17)/2,2);
+		}
+	      else
+		{
+		  Hills[1].Elevation+=(Difference-17)/2;
+		  Hills[N].Elevation-=(Difference-17)/2;
+		  cost+= 2*(int) pow((Difference-17)/2,2);
+		}
+	    }
+	  else
+	    {
+	      Hills[N].Elevation-=1;
+	      cost+=1;
+	    }
+	  cout<<"Cost: "<<cost<<endl;
+	}
+      else
+	break;
+      qsort(Hills,N+1,sizeof(hill),compare);
+      smallest=Hills[1].Elevation;
+      largest=Hills[N].Elevation;
+      
+      for (int j=1;j<=N;j++) cout<<Hills[j].Elevation<<" ";
+      cout<<endl;
+      cout<<"Difference: "<<largest-smallest<<endl;
+    }
+  fout<<cost<<endl;
+    
+
+}
